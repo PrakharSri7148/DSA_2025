@@ -6,6 +6,7 @@ public class checkSorted {
         for(int i=0; i<nums.length-1; i++){
             if(nums[i]>nums[i+1]){
                 isAscending = false;
+                break;
             }
         }
         return isAscending;
