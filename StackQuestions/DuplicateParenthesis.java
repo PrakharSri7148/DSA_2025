@@ -2,7 +2,7 @@ import java.util.*;
 
 public class DuplicateParenthesis {
     
-    public static Boolean isValid(String str) {
+    public static Boolean isDuplicate(String str) {
         Stack<Character> s = new Stack<>();
         
         for(int i=0; i<str.length(); i++) {
@@ -30,7 +30,7 @@ public class DuplicateParenthesis {
 
     public static void main(String[] args) {
         String str = "(a+b)";
-        Boolean result = isValid(str);
+        Boolean result = isDuplicate(str);
         System.out.println(result);
     }
 }
