@@ -13,6 +13,7 @@ public class DequeA {
         d.removeFirst();
         d.removeLast();
         System.out.println(d);
+        
     }
 
 }
