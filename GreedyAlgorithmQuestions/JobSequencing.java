@@ -17,8 +17,10 @@ public class JobSequencing {
         }
 
         System.out.println("Time taken: "+time);
+        int maxProfit = 0;
         for(int i=0; i<val.size(); i++) {
-            System.out.print(val.get(i)+" ");
+            maxProfit += val.get(i);
         }
+        System.out.println("Max profit is : "+maxProfit);
     }
 }
