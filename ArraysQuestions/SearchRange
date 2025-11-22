@@ -1,0 +1,22 @@
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int[] se = {-1, -1};
+
+        int i=0;
+        while(i<nums.length){
+            if(nums[i] == target) {
+                se[0] = i;
+
+                int j =i;
+                while(j < nums.length && nums[j] == target) {
+                    j++;
+                }
+                se[1] = j-1;
+                break;
+            }
+            else i++;
+        }
+
+        return se;
+    }
+}
