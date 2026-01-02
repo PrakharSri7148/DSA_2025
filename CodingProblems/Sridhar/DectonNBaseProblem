@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class DectoNBaseProblem {
+
+    public static String DectoNBase(int n, int num) {
+        
+        StringBuilder str = new StringBuilder();
+
+        
+        while(num>0) {
+
+            int rem = num%n;
+            if(rem<10) str.append(rem);
+            else str.append((char)(rem-10+'A'));
+
+            num = num/n;
+        }
+
+        str.reverse();
+        String result = str.toString();
+
+        return result;
+
+
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int n = sc.nextInt();
+
+        String ans = DectoNBase(n, num);
+
+        System.out.println(ans);
+    }
+}
