@@ -1,0 +1,37 @@
+import java.util.*;
+
+class MergeAlternate {
+    
+    public static void main(String[] args) {
+        String word1;
+        String word2;
+
+        Scanner kbrd = new Scanner(System.in);
+        System.out.print("Input word1: ");
+        word1 = kbrd.nextLine();
+        System.out.print("Input word2: ");
+        word2 = kbrd.nextLine();
+
+        String merged = mergeAlternately(word1, word2);
+        System.out.println(merged);
+
+    }
+    public static  String mergeAlternately(String word1, String word2) {
+        
+        StringBuilder str = new StringBuilder();
+        int i=0;
+        int j=0;
+
+        while(i < word1.length() || j < word2.length()) {
+            if(i<word1.length()) str.append(word1.charAt(i));
+            if(j<word2.length()) str.append(word2.charAt(j));
+
+            i++;
+            j++;
+        }
+
+        String result = str.toString();
+
+        return result;
+    }
+}
