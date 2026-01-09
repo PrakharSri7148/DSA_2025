@@ -1,0 +1,18 @@
+public class marquee {
+    public static void main(String[] args) {
+        
+        for(int i=65; i<91; i++) {       //printing alphabets 
+            System.out.print((char)i);
+        }
+        System.out.println();
+        
+        for(int i = 1; i<=26; i++) {      //printing remainders 
+            System.out.print(i%10);
+        }
+        System.out.println();
+
+        for(int i=1; i<=26; i++) {       //printing quotients
+            System.out.print(i/10);
+        }
+    }
+}
