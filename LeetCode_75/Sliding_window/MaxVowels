@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    public int maxVowels(String s, int k) {
+        int vowel_count = 0;
+
+        int ptr1 = 0;
+        int ptr2 = ptr1 + k-1;
+        int count = 0;
+        int final_count = 0;
+
+        for(int i = ptr1; i<=ptr2; i++) {
+            if(s.charAt(i) == 'a' || s.charAt(i) == 'e' || s.charAt(i) =='i' ||   s.charAt(i) == 'o' || s.charAt(i) == 'u' ) {
+                    count ++;
+                }
+        }
+
+        final_count = count;
+
+        for(int i = k; i<s.length(); i++) {
+
+            if(isVowels(s.charAt(i))) count ++;
+
+            if(isVowels(s.charAt(i-k))) count --;
+
+            final_count = Math.max(final_count, count);
+        }
+
+        return final_count;
+    
+    }
+    private boolean isVowels (char c) {
+            return c == 'a' || c == 'e' || c == 'i' ||
+               c == 'o' || c == 'u';
+        }
+}
