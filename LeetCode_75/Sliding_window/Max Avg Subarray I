@@ -1,0 +1,36 @@
+class Solution {
+    public double findMaxAverage(int[] nums, int k) {
+        //definition
+        int window_sum;
+        int max_result;
+        double final_ans;
+        int divisor;
+        int ptr1;
+        int ptr2;
+
+        //priming
+        window_sum = 0;
+        ptr1 = 0;
+        ptr2 = ptr1+k-1;
+        divisor = k;
+
+        //process
+
+        if(nums.length == 1) return nums[0];
+
+        for(int i=ptr1; i<=ptr2; i++) {
+            window_sum += nums[i];
+        }
+
+        max_result = window_sum;
+
+        while(k < nums.length) {
+            window_sum = (window_sum + nums[k]) - nums[ptr1];
+            if(max_result<window_sum) max_result = window_sum;
+            k++;
+            ptr1++;
+        }
+
+        return final_ans = (double)max_result/divisor;
+    }
+}
