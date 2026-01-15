@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+        
+        int y=0;
+        int temp_x = x;
+        int digit;
+
+        if(x < 0) return false;
+
+        while(x != 0) {
+        digit = x%10;
+        x /= 10;
+
+        y = y*10 + digit;
+        }
+
+        if(temp_x != y) return false;
+
+        return true;
+    }
+}
