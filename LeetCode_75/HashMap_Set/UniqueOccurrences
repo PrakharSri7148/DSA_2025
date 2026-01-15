@@ -1,0 +1,20 @@
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+        
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for(int num: arr) {
+            if(!map.containsKey(num)) map.put(num, 1);
+            else map.put(num, map.get(num)+1);
+        }
+
+        HashSet<Integer> freq = new HashSet<>();
+        for( int key: map.values()) {
+            if(freq.contains(key)) return false;
+            else freq.add(key);
+        }
+
+        return true;
+
+    }
+}
