@@ -1,0 +1,77 @@
+// My solution (beats 15.51%)     using hashset approach for looping 
+class Solution {
+    public boolean isHappy(int n) {
+
+        HashSet<Integer> set = new HashSet<>();
+
+        int temp = n; 
+        int sum;
+
+        while(!set.contains(temp)) {
+            set.add(temp);
+            sum = 0;
+            while(temp>0) {
+                int digit = temp%10;
+                temp = temp/10;
+                sum = sum+(digit*digit);
+            }
+            if(sum == 1) return true;
+            temp = sum;
+        }
+
+        return false;
+    }
+}
+
+
+//learnt solution  (beats 77.51 %)   using linked list and floyd's approach for looping
+
+class Solution {
+    public boolean isHappy(int n) {
+
+        int slow = n;
+        int fast = n;
+
+        do {
+            slow = square(slow);
+            fast = square(square(fast));
+        }while(slow != fast);
+
+        return slow == 1;
+    }
+
+    private int square(int num) {
+        int sum = 0;
+
+        while(num > 0) {
+            int digit = num%10;
+            sum += digit*digit;
+            num /= 10;
+        }
+        return sum;
+    }
+}
+
+
+//My improved version (beats 77.01%)
+
+class Solution {
+    public boolean isHappy(int n) {
+
+        HashSet<Integer> set = new HashSet<>();
+ 
+
+        while(!set.contains(n)) {
+            set.add(n);
+            int sum = 0;
+            while(n>0) {
+                int digit = n%10;
+                n = n/10;
+                sum = sum+(digit*digit);
+            }
+            n = sum;
+        }
+
+        return n == 1;
+    }
+}
