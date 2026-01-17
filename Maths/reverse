@@ -1,0 +1,22 @@
+class Solution {
+    public int reverse(int x) {
+        
+        int copy_num = x;
+        int rev = 0;
+
+        while(copy_num != 0) {
+            int digit = copy_num % 10;
+
+            //overflow check
+            if(rev > Integer.MAX_VALUE /10 || rev == Integer.MAX_VALUE/10 && digit > 7) return 0;
+            if(rev < Integer.MIN_VALUE /10 || rev == Integer.MIN_VALUE/10 && digit < -8) return 0;
+
+            rev = rev * 10 + digit;
+            copy_num /= 10;
+        }
+
+        x = rev;
+        return x;
+        
+    }
+}
