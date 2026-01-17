@@ -1,0 +1,51 @@
+class Solution {
+    public int[] constructRectangle(int area) {
+
+        int max = Integer.MAX_VALUE;
+        int[] arr = new int[2];
+
+        for(int i = 1; i*i <= area; i++) {
+            if(area % i == 0) {
+                int l = area/i;
+
+                int diff = l - i;
+                if(diff < max) {
+                    max = diff;
+                    arr[0] = l;
+                    arr[1] = i;
+                }
+            }
+        }
+        
+
+        return arr;
+    }
+}
+
+
+
+class Solution {
+    public int[] constructRectangle(int area) {
+        int width = (int)Math.sqrt(area);
+        int[] arr = new int[2];
+
+        while(width>0) {
+            if(area % width == 0) {
+                int length = area/width;
+                arr[0] = length;
+                arr[1] = width;
+                return arr;
+            }
+
+            width--;
+        }
+
+        return null;
+    }
+}
+
+
+
+//both the solutions are correct but the reason why solution 2 beats more than 1 is here we go area -> 1, but in solution 1 we go 1 -> area
+//since we need greater width so getting greater width in solution 2 is much easier than solution 1 coz here we aint computing diff
+//sol 2 is even exiting quickly than sol 1
