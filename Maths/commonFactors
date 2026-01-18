@@ -1,0 +1,38 @@
+//My solution
+
+class Solution {
+    public int commonFactors(int a, int b) {
+        
+        int min_num = Math.min(a, b);
+        int count = 0;
+
+        for(int i = 1; i<= min_num; i++) {
+            if( a%i == 0 && b%i == 0) count++;
+        }
+
+        return count;
+    }
+}
+
+//optimzed Solution
+class Solution {
+    public int commonFactors(int a, int b) {
+        
+        int g = gcd(a, b);
+        int count = 0;
+
+        for(int i = 1; i<= g; i++) {
+            if( a%i == 0 && b%i == 0) count++;
+        }
+
+        return count;
+    }
+
+    private int gcd(int a, int b) {
+        if (b == 0) return a;
+        return gcd(b, a % b);
+    }
+}
+
+// you dont need to traverse till the smallest number
+// going till gcd is enough coz thats the number which divides both the number max 
