@@ -1,0 +1,28 @@
+class Solution {
+    public List<Integer> addToArrayForm(int[] num, int k) {
+        
+        ArrayList<Integer> al = new ArrayList<>();
+
+        int i = num.length - 1;
+
+        while( i>= 0 || k> 0) {
+            
+            if( i>= 0) {        //this is used to safegaurd the array boundation coz maybe i will be negative but still k is left (error)
+                k += num[i];
+                i--;
+            }    
+
+            al.add(k % 10);
+            k = k/10;
+        }
+
+        Collections.reverse(al);
+
+        return al;
+    }
+}
+
+
+//Be carefull these type of questions look easy but something is hidden in this 
+//int overflow will happen here for large integer for sure 
+//thats why we used this logic 
