@@ -1,0 +1,29 @@
+// my solution
+
+class Solution {
+    public int smallestEvenMultiple(int n) {
+
+        if(n == 1) return 2;
+        
+        for( int i = 1; i < n*2; i++) {
+            int mul = n*i;
+
+            if(mul % n == 0 && mul % 2 == 0) return mul;
+        }
+
+        return 0;
+    }
+}
+
+//optimized solution
+class Solution {
+    public int smallestEvenMultiple(int n) {
+        if(n%2 ==0){
+            return n;
+        }
+        return n*2;
+    }
+}
+
+//optimzed one is good coz any ways when you iterate you will reach n*2 so its the same literally 
+// anyways you will achieve in 2nd iteration onlh then why will you iterate it for no reason after that 
