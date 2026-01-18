@@ -1,0 +1,40 @@
+//My solution 
+
+class Solution {
+    public boolean divisorGame(int n) {
+        
+        int alice = 0;
+        int bob = 0;
+
+        boolean flag1 = true;
+        boolean flag2 = false;
+
+        while( n > 1 ) {
+
+            n = n-1;
+            if(flag1 == true) {
+                alice++;
+                flag1 = false;
+                flag2 = true;
+            }
+            else {
+                bob++;
+                flag2 = false;
+                flag1 = true;
+            }   
+        }
+
+                return alice > bob;
+    }
+
+}
+
+
+
+//Optimized solution 
+class Solution {
+    public boolean divisorGame(int n) {
+        if(n%2==0) return true;
+        return false;
+    }
+}
