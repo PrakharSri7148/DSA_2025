@@ -1,0 +1,39 @@
+//my solution
+
+class Solution {
+    public int majorityElement(int[] nums) {
+        
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for(int i=0; i<nums.length; i++) {
+            if(!map.containsKey(nums[i])) map.put(nums[i], 1);
+            else map.put(nums[i], map.get(nums[i]) +1);
+        }
+
+        for(int i : map.keySet()) {
+            if( map.get(i) > nums.length/2) return i;
+        }
+
+        return 0;
+    }
+}
+
+
+//Optimized solution
+class Solution {
+    public int majorityElement(int[] nums) {
+        HashMap<Integer, Integer> hash = new HashMap<>();
+        int res = 0;
+        int majority = 0;
+
+        for (int n : nums) {
+            hash.put(n, 1 + hash.getOrDefault(n, 0));
+            if (hash.get(n) > majority) {
+                res = n;
+                majority = hash.get(n);
+            }
+        }
+
+        return res;        
+    }
+}
