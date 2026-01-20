@@ -1,0 +1,29 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        HashMap<Character,Integer> mp1 = new HashMap<>();
+        HashMap<Character,Integer> mp2 = new HashMap<>();
+
+        for(char r:ransomNote.toCharArray()){
+            mp1.put(r,mp1.getOrDefault(r,0)+1);
+        }
+        for(char r:magazine.toCharArray()){
+            mp2.put(r,mp2.getOrDefault(r,0)+1);
+        }
+
+        for(Map.Entry<Character,Integer> ch1:mp1.entrySet()){
+            char key = ch1.getKey();
+            int value = ch1.getValue();
+
+            if(!mp2.containsKey(key) || value > mp2.get(key)){
+                return false;
+            }
+
+        }
+
+        return true;
+
+    }
+}
+
+
+
