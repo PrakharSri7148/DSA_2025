@@ -1,0 +1,18 @@
+class Solution {
+    public int pivotInteger(int n) {
+        if( n == 1) return 1;
+
+        int sum_num = n;
+        while( n!=0) {
+            int x = n-1;
+            sum_num = sum_num + x;
+            
+            int sum = (x*(x+1))/2;
+
+            if(sum == sum_num) return x;
+            n--;
+        }
+
+        return -1;
+    }
+}
