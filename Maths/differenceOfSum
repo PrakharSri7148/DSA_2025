@@ -1,0 +1,27 @@
+class Solution {
+    public int differenceOfSum(int[] nums) {
+        
+        int ele_sum = 0;
+        for( int i : nums) {
+            ele_sum += i;
+        }
+
+        int digi_sum = 0;
+        for( int i : nums) {
+
+            int copy_digit = i;
+            if(copy_digit < 10) digi_sum += copy_digit;
+            else {
+                while(copy_digit != 0) {
+                    int digit = copy_digit % 10;
+                    digi_sum += digit;
+                    copy_digit /= 10;
+                }
+            }
+        }
+
+        if( ele_sum - digi_sum < 0) return -(ele_sum - digi_sum);
+
+        return ele_sum - digi_sum;
+    }
+}
