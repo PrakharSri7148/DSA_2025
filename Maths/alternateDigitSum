@@ -1,0 +1,33 @@
+class Solution {
+    public int alternateDigitSum(int n) {
+        
+        int copy_n = n;
+        int power = 1;
+        while( n >= 10 ) {
+            n = n/10;
+            power = power * 10;
+        }
+
+        n = copy_n;
+
+        int sum = 0;
+        boolean flag = true;
+
+        while( power > 0) {
+            int digit = n/power;
+            n = n%power;
+            power = power/10;
+
+            if(flag == true) {
+                sum = sum + digit;
+                flag = false;
+            }
+            else {
+                sum = sum - digit;
+                flag = true;
+            }
+        }
+
+        return sum;
+    }
+}
