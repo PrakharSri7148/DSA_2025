@@ -1,0 +1,44 @@
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+
+        int[] arr = new int[2*n];
+
+        boolean check = true;
+
+        int start = 0;
+        int mid = n;
+        int m=0;
+        while( m < arr.length && mid< arr.length) {
+            if( check == true ) {
+                arr[m] = nums[start];
+                start++;
+                m++;
+                check = false;
+            }
+            else {
+                arr[m] = nums[mid];
+                mid++;
+                m++;
+                check = true;
+            }
+        }
+
+        return arr;
+
+    }
+}
+
+
+//optimized one
+
+class Solution {
+    public static int[] shuffle(int[] nums, int n) {
+        int[] res = new int[nums.length];
+        int count=0;
+        for(int i=0;i<n;i++){
+            res[count++]=nums[i];
+            res[count++]=nums[n+i];
+        }
+        return res;
+    }
+}
