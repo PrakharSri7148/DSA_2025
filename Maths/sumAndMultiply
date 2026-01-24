@@ -1,0 +1,31 @@
+class Solution {
+    public long sumAndMultiply(int n) {
+        
+        int copy_num = n;
+
+        int power = 1;
+        while(copy_num >= 10) {
+            power *= 10;
+            copy_num /= 10;
+        }
+
+        int new_num = 0;
+        while( power > 0) {
+            int digit = n/power;
+            if(digit != 0) new_num = new_num * 10 + digit;
+            n = n%power;
+            power /= 10;
+        }
+
+        int copy_new_num = new_num;
+        int sum = 0;
+        while(new_num != 0) {
+            int digit = new_num % 10;
+            sum = sum + digit;
+            new_num /= 10;
+        }
+
+        return (long)copy_new_num * sum;
+
+    }
+}
