@@ -1,0 +1,32 @@
+class Solution {
+    public int getLeastFrequentDigit(int n) {
+        
+        HashMap<Integer, Integer> map = new HashMap<>();
+        ArrayList<Integer> al = new ArrayList<>();
+
+        while( n != 0) {
+            int digit = n % 10;
+            map.put(digit, map.getOrDefault(digit, 0) + 1);
+            n = n / 10;
+        }
+
+        int min = Integer.MAX_VALUE;
+        for (int i : map.keySet()) {
+            if (map.get(i) < min) {
+                min = map.get(i);
+                al.clear();
+                al.add(i);
+            } else if (map.get(i) == min) {
+                al.add(i);
+            }
+        }
+
+        int smallest = Integer.MAX_VALUE;
+        for(int i : al) {
+            if(i < smallest) smallest = i;
+        }
+
+        return smallest;
+
+    }
+}
