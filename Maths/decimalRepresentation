@@ -1,0 +1,37 @@
+class Solution {
+    public int[] decimalRepresentation(int n) {
+        
+        int temp = n;
+        int copy_n = n;
+        int copy = n;
+
+        int length = 0;
+        while(temp != 0) {
+            int digit = temp %10;
+            temp = temp / 10;
+            if(digit!=0) length++;
+        }
+
+        int ans[] = new int[length];
+
+        int power = 1;
+        while( copy_n > 9) {
+            copy_n /= 10;
+            power *= 10;
+        }
+
+        int index = 0;
+        while( power > 0) {
+            int digit = copy/power;
+            if(digit != 0) {
+                int new_n = digit*power;
+                ans[index] = new_n;
+                index++;
+            }
+            copy = copy % power;
+            power = power/10;
+        }
+
+        return ans;
+    }
+}
