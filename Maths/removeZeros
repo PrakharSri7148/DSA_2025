@@ -1,0 +1,24 @@
+class Solution {
+    public long removeZeros(long n) {
+        
+        long copy_n = n;
+        long power = 1;
+        while(n >9) {
+            n /= 10;
+            power *= 10;
+        }
+
+        n = copy_n;
+
+        long new_n = 0;
+        while(power > 0) {
+            long digit = n/power;
+            n = n % power;
+            power = power/10;
+
+            if(digit != 0) new_n = new_n * 10 + digit;
+        }
+
+        return new_n;
+    }
+}
