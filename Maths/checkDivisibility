@@ -1,0 +1,25 @@
+class Solution {
+    public boolean checkDivisibility(int n) {
+        
+        int sum = 0;
+        int product = 1;
+        int copy_n = n;
+
+        while(copy_n != 0) {
+            int digit = copy_n % 10;
+            sum += digit;
+            copy_n /= 10;
+        }
+
+        copy_n = n;
+
+        while(copy_n != 0) {
+            int digit = copy_n % 10;
+            product *= digit;
+            copy_n /= 10;
+        }
+
+        int final_sum = sum + product ;
+        return n % final_sum == 0;
+    }
+}
