@@ -1,0 +1,23 @@
+class Solution {
+    public int maxContainers(int n, int w, int maxWeight) {
+        
+        int cell = n*n;
+        int count = 0;
+
+        int weight = 0;
+        while( count < cell && weight < maxWeight) {
+            weight += w;
+            count++;
+        }
+
+        if(weight > maxWeight) return count - 1;
+        return count;
+    }
+}
+
+
+class Solution {
+    public int maxContainers(int n, int w, int maxWeight) {
+        return Math.min(n * n, maxWeight / w);
+    }
+}
