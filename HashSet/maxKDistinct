@@ -1,0 +1,19 @@
+class Solution {
+    public int[] maxKDistinct(int[] nums, int k) {
+        
+        HashSet<Integer> set = new HashSet<>();
+        for(int i=0; i<nums.length; i++) {
+            set.add(nums[i]);
+        }
+
+        ArrayList<Integer> al = new ArrayList<>(set);
+        Collections.sort(al, Collections.reverseOrder());
+
+        int[] arr = new int[Math.min(k, al.size())];
+        for(int i=0; i<arr.length; i++) {
+            arr[i] = al.get(i);
+        }
+
+        return arr;
+    }
+}
