@@ -1,0 +1,15 @@
+class Solution {
+    public int addedInteger(int[] nums1, int[] nums2) {
+        
+        int sum1 = 0;
+        int sum2 = 0;
+
+        for(int i : nums1) sum1 += i;
+        for(int i : nums2) sum2 += i;
+
+        int diff = (sum2 - sum1);
+        
+
+        return diff/nums1.length;
+    }
+}
