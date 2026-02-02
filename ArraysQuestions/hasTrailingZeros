@@ -1,0 +1,38 @@
+class Solution {
+    public boolean hasTrailingZeros(int[] nums) {
+        
+        for(int i=0; i<nums.length; i++) {
+            for(int j=i+1; j<nums.length; j++) {
+                int bitwise = nums[i] | nums[j];
+                if(bitwise % 2 == 0) return true;
+            }
+        }
+
+        return false;
+    }
+}
+
+
+class Solution {
+    public boolean hasTrailingZeros(int[] nums) {
+        int evenCount = 0;
+
+        for(int i=0; i<nums.length; i++) {
+            if(nums[i]%2 == 0) {
+                evenCount++;
+
+                if(evenCount > 1) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+}
+
+//In the second logic what is done:
+//Evenn number has trailing zeros in their binary represenation 
+//if you do bitwise OR of 2 even numbers it will definetely have trailing zeros in its binary representation 
+//so we just counted the number of even numbers in the array
+//if it has 2 even numbers that means we can return true
