@@ -1,0 +1,30 @@
+class Solution {
+    public int minNumber(int[] nums1, int[] nums2) {
+        
+        int min1 = Integer.MAX_VALUE;
+        int min2 = Integer.MAX_VALUE;
+
+        for(int i : nums1) min1 = Math.min(min1, i);
+        for(int i : nums2) min2 = Math.min(min2, i);
+
+        if(min1 == min2) return min1;
+
+        int x = Integer.MAX_VALUE;
+
+        for(int i=0; i<nums1.length; i++) {
+            for(int j=0; j<nums2.length; j++) {
+                if (nums1[i] == nums2[j]) {
+                    x = Math.min(nums1[i], x);
+                }
+            }
+        }
+
+        if(x != Integer.MAX_VALUE) return x;
+
+        int int1 = min1*10 + min2;
+        int int2 = min2*10 + min1;
+
+        return Math.min(int1, int2);
+
+    }
+}
