@@ -1,0 +1,21 @@
+class Solution {
+    public List<Integer> intersection(int[][] nums) {
+        
+        int[] arr = new int[1001];
+        for(int i=0; i<nums.length; i++) {
+            for(int j=0; j<nums[i].length; j++) {
+                int num = nums[i][j];
+                arr[num]++;
+            }
+        }
+
+        ArrayList<Integer> al = new ArrayList<>();
+
+        for(int i=0; i<arr.length; i++) {
+            int k = nums.length;
+            if(arr[i] == k) al.add(i);
+        }
+
+        return al;
+    }
+}
