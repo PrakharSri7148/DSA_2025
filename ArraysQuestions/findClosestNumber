@@ -1,0 +1,18 @@
+class Solution {
+    public int findClosestNumber(int[] nums) {
+
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+
+        for(int i : nums) {
+            if(i == 0) return 0;
+            if( i > 0 && i <min) min = i;
+            if( i < 0 && i >max) max = i;
+        }
+
+        if( min == Math.abs(max)) return min;
+        if(max == Integer.MIN_VALUE) return min;
+
+        return min < Math.abs(max) ? min : max;
+    }
+}
