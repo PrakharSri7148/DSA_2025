@@ -1,0 +1,21 @@
+class Solution {
+    public int distinctAverages(int[] nums) {
+        
+        Arrays.sort(nums);
+        int ptr1 = 0;
+        int ptr2 = nums.length-1;
+
+        HashSet<Float> set = new HashSet<>();
+
+        while(ptr1 < ptr2) {
+            float avg = (nums[ptr1] + nums[ptr2])/2.0f;
+            set.add(avg);
+            ptr1++;
+            ptr2--;
+        }
+
+        int count = set.size();
+
+        return count;
+    }
+}
