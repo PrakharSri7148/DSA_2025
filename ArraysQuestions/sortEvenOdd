@@ -1,0 +1,29 @@
+class Solution {
+    public int[] sortEvenOdd(int[] nums) {
+        
+        ArrayList<Integer> ale = new ArrayList<>();
+        ArrayList<Integer> alo = new ArrayList<>();
+
+        for(int i=0; i<nums.length; i++) {
+            if(i%2==0) ale.add(nums[i]);
+            else alo.add(nums[i]);
+        }
+
+        Collections.sort(ale);
+        Collections.sort(alo);
+        Collections.reverse(alo);
+
+        int i =0;
+        int j =0;
+
+        int[] arr = new int[nums.length];
+
+        for(int p=0; p<nums.length; p++) {
+            if(p % 2 == 0) arr[p] = ale.get(i++);
+            else arr[p] = alo.get(j++);
+        }
+
+        return arr;
+        
+    }
+}
