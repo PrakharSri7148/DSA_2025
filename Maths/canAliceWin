@@ -1,0 +1,29 @@
+class Solution {
+    public boolean canAliceWin(int n) {
+        
+        int k = 10;
+        boolean alice = true;
+        boolean bob = false;
+
+        while(k <= n) {
+            if( alice == true) {
+                n -= k;
+                alice = false;
+                bob = true;
+                k--;
+            }
+
+            else if( bob == true) {
+                n -= k;
+                alice = true;
+                bob = false;
+                k--;
+            }
+
+        }
+
+        if(bob == true) return true;
+
+        return false;
+    }
+}
