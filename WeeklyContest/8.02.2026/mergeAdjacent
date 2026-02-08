@@ -1,0 +1,23 @@
+class Solution {
+    public List<Long> mergeAdjacent(int[] nums) {
+
+        ArrayList<Long> al = new ArrayList<>();
+        for(int i : nums) {
+            al.add((long)i);
+        }
+
+        int i = 0;
+
+        while(i<al.size()-1) {
+            if(al.get(i).equals(al.get(i+1))) {
+                long sum = al.get(i) + al.get(i+1);
+                al.set(i, sum);
+                al.remove(i+1);
+                if(i > 0) i--;
+            }
+            else i++;
+        }
+
+        return al;
+    }
+}
